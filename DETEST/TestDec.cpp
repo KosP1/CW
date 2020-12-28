@@ -768,8 +768,7 @@ TEST_SUITE ( "Decoder" ) {
                 CHECK(dataIimm == imm);
                 CHECK(dataFunc == func);
     }
-
-
+    
     TEST_CASE("LUI"){
         IType opcode;
         AluFunc func;
@@ -817,7 +816,6 @@ TEST_SUITE ( "Decoder" ) {
                 CHECK(dataRd == rd );
                 CHECK(dataIimm == imm);
     }
-
 
     TEST_CASE("JAL"){
         IType opcode;
@@ -900,33 +898,7 @@ TEST_SUITE ( "Decoder" ) {
                 CHECK(dataRd == rd );
                 CHECK(dataCsrr == csrr);
     }
-    TEST_CASE("CSRR"){
-        IType opcode;
-        BrFunc func;
-        uint16_t rs1;
-        uint16_t rd;
-        CsrIdx csrr;
-
-        Word data = 0b11110001010000000010010101110011;
-
-        IType dataOpcode =  IType::Csrr;
-        uint16_t dataRs1 = 0b00000;
-        uint16_t dataRd = 0b01010;
-        CsrIdx dataCsrr = static_cast<CsrIdx>(0b111100010100);
-        // 111100010100 00000 010 01010 1110011
-        Decoder d;
-        auto instr = d.Decode(data);
-        opcode = instr->_type;
-        rs1 = *instr->_src1;
-        rd = *instr->_dst;
-        func = instr->_brFunc;
-        csrr = *instr->_csr;
-                CHECK(dataOpcode == opcode );
-                CHECK(dataRs1 == rs1 );
-                CHECK(dataRd == rd );
-                CHECK(dataCsrr == csrr);
-    }
-
+    
     TEST_CASE("CSRW"){
         IType opcode;
         BrFunc func;
@@ -952,8 +924,4 @@ TEST_SUITE ( "Decoder" ) {
                 CHECK(dataRd == rd );
                 CHECK(dataCsrw == csrw);
     }
-
-
-
-
 }
