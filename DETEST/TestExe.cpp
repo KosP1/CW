@@ -414,7 +414,7 @@ TEST_SUITE ( "Executor" ) {
         exe.Execute(instr, ip);
                 CHECK (instr->_data ==ip +4 );
     }
-    TEST_CASE ("JAL") {
+    TEST_CASE ("JALR") {
         Word data;
         data = 0b00000000100010001000010101100111;
         Word loadedWord;
