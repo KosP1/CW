@@ -17,7 +17,6 @@ TEST_SUITE ( "Decoder" ) {
        // rs2 x10 = 01010
        // rd x16 = 10000
        // rs1 x17  = 10001
-
         Word data = 0b00000000101010001000100000110011;
         AluFunc dataFunc = AluFunc::Add;
         uint16_t dataRs1 = 0b10001;
